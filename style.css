@@ -1,0 +1,10 @@
+.active {
+    background-color: #15803D;
+    color: white;
+}
+
+.hoverbtn:hover {
+    background-color: #15803D;
+    color:white;
+    transition: linear 0.1ms;
+}

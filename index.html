@@ -23,16 +23,22 @@
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="bg-[#15803D] text-white">
         <div class="main-nav bg-[#15803D]">
-          <div class="grn-btn flex justify-between items-center h-15">
-            <h3 class="text-white pl-12 font-medium text-sm">Green Earth</h3>
-            <div class="about-section flex gap-4">
-              <p class="text-white font-medium text-sm">About</p>
-              <p class="text-white font-medium text-sm">Gallery</p>
-              <p class="text-white font-medium text-sm">Plant a Tree</p>
+          <div class="grn-btn flex justify-between items-center h-14 px-4 md:12">
+            <h3 class="text-white pl-12 font-medium text-sm md:text-base">Green Earth</h3>
+            <div class="about-section hidden md:flex gap-4">
+              <p class="text-white font-medium text-sm cursor-pointer">About</p>
+              <p class="text-white font-medium text-sm cursor-pointer">Gallery</p>
+              <p class="text-white font-medium text-sm cursor-pointer">Plant a Tree</p>
             </div>
-            <div class="btn-div pr-12">
+              <div class="md:hidden">
+                <button id="menu-toggle" class="text-white text-xl">
+                <i class="fa-solid fa-bars"></i>
+                </button>
+              </div>
+
+            <div class="btn-div hidden md:block pr-12">
               <button
                 class="btn cursor-pointer text-[#15803D] font-medium bg-[#FACC15] px-3 py-1 rounded-3xl text-sm"
               >
@@ -41,6 +47,11 @@
             </div>
           </div>
         </div>
+       <div id="mobile-menu" class="hidden flex-col bg-     [#15803D] text-white px-4 py-2 space-y-2 md:hidden">
+          <p class="cursor-pointer">About</p>
+          <p class="cursor-pointer">Gallery</p>
+          <p class="cursor-pointer">Plant a Tree</p>
+     </div>
       </nav>
       <section
         class="hero-section relative bg-[#CFF0DC] flex items-center justify-center min-h-[60vh] py-20"
@@ -83,27 +94,105 @@
       <section class="cart-title mt-6 px-3 flex justify-center">
         <h1 class="font-semibold text-2xl text-center">Choose Your Trees</h1>
       </section>
+            
+       <div id="spinner" class="flex justify-center items-center py-10 hidden">
+         <span class="loading loading-dots loading-lg"></span>
+        </div>
 
-      <section class="all-items">
-        <div class="categories-btn w-11/12 mx-auto">
-          <div class="bg-white shadow-lg rounded-lg w-40">
+      <!-- <section class=" max-w-screen-xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div class="categories-btn md:col-span-2 bg-white shadow-lg rounded-lg p-4 h-fit self-start">
+          <div class="bg-white shadow-lg rounded-lg hidden md:block w-40">
             <h2 class="text-xl font-semibold text-black my-4">Categories</h2>
             <ul id="cate-btn" class="divide-gray-200">
-              <li
-                class="hover:bg-[#15803D] transition hover:text-white font-medium px-4 py-1qw cursor-pointer"
-              >
-                All Trees
+            
               </li>
             </ul>
           </div>
         </div>
+        
+<div onclick="loadDropCategories()" id="old-id" class="dropdown dropdown-start flex justify-center m-10 md:hidden">
+  <div tabindex="0" role="button" class="btn text-[#15803D] border border-[#15803D] m-1">Show Category</div>
+  <ul id="new-id" tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-green-500">
+  </ul>
+</div>
+  <div onclick="loadDropCategories()" id="single-list"  class="dropdown w-full md:hidden">
+      <div tabindex="0" role="button" class="btn w-full     bg-white text-[#15803D] border border-gray-300">
+           Select Category
+     </div>
+       <ul id="drop-category-2" tabindex="0"
+         class="dropdown-content  menu bg-white text-[#15803D] rounded-box w-full shadow z-[1]">
+       </ul>
+    </div>
 
-        <div id="show-card" class="cart">
+</div>
+
+       
+
+    <div id="show-card" class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
           
+    </div>
+
+    <div id="wishlist" class="add-to-cart font-semibold md:col-span-2 flex flex-col justify-start items-center gap-2 md:items-start ">
+          <h1 class="font-semibold mb-2 text-lg">Your Cart</h1>
+         
+          
+    </div>
+      </section> -->
+
+      <section class="about-the-campaign">
+        <h1 class="text-2xl font-semibold text-center">About the Campaign</h1>
+      </section>
+      <section class="campaign-image banner flex flex-col text-center md:flex-row gap-15 justify-between md:text-left items-center w-10/12 mx-auto my-5">
+        <div class="cam-img">
+          <img class="flex-1" src="./assets/about.png" alt="leaf">
         </div>
+        <div class="cam-content flex-1">
+          <p class="font-semibold">Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we've planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.
+            <ul class="mt-2 list-disc list-inside font-semibold">
+              <li>Restoration of natural habitats</li>
+              <li>Improvement of air quality</li>
+              <li>Support for local communities</li>
+            </ul>
+          </p>
+        </div>
+      </section>
+
+      <section class="our-impact min-h-[300px] bg-[#CFF0DC] ">
+        <div class="our-details-container w-full flex justify-center items-start pb-10 ">
+          <h1 class="text-2xl font-semibold text-center  mt-11">Our Impact</h1>
+        </div>
+
+       <div class="main-impact-cart  flex flex-col md:flex-row flex-wrap justify-evenly items-center gap-4 ">
+         <div class="impact-card bg-white h-24 w-56 mt-8 shadow-lg flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-[#CFF0DC] transition ">
+          <h1 class="text-4xl text-[#15803D]">500K+</h1>
+          <p  class="text-[#1F2937] text-sm w-[100px]">Trees Planted</p>
+        </div>
+         <div class="impact-card bg-white h-24 w-56 mt-8 shadow-lg flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-[#CFF0DC] transition ">
+          <h1 class="text-4xl text-[#15803D] ">120+</h1>
+          <p  class="text-[#1F2937] text-sm w-[140px] break-words">Communities Involved</p>
+        </div>
+         <div class="impact-card bg-white h-24 w-56 mt-8 shadow-lg flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-[#CFF0DC] transition">
+          <h1 class="text-4xl text-[#15803D]">30+</h1>
+          <p  class="break-words text-[#1F2937] text-sm w-[125px] ">Countries Reached</p>
+        </div>
+       </div>
       </section>
     </main>
     <footer></footer>
+
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+   <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="detail-container" class="space-y-5">
+        </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+   </dialog>
     <script src="app.js"></script>
   </body>
 </html>

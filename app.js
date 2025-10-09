@@ -36,16 +36,16 @@ const removeActiveClass = () => {
 }
 
 // drop category 
-// let isDropCategoryLoaded = false;
+let isDropCategoryLoaded = false;
 
 const loadDropCategories = () => {
-  // const dropDownList = document.getElementById('drop-category-2');
-  //  dropDownList.classList.toggle('hidden');
-  //  if (isDropCategoryLoaded) {
-  //   return;
-  //  } else {
-  //   isDropCategoryLoaded = true;
-  //  }
+  const dropDownList = document.getElementById('new-id');
+   dropDownList.classList.toggle('hidden');
+   if (isDropCategoryLoaded) {
+    return;
+   } else {
+    isDropCategoryLoaded = true;
+   }
   
     const url = `https://openapi.programming-hero.com/api/categories`;
     fetch(url)
@@ -53,13 +53,15 @@ const loadDropCategories = () => {
     .then((category) => dropDownFunction(category.categories));
 }
 const dropDownFunction = (downs) => {
-
+        const dropDown = document.getElementById('new-id');
+        dropDown.innerHTML = "";
   downs.forEach((down) => {
-        const dropDown = document.getElementById('drop-category-2');
-        const createElement = document.createElement('li');
-        createElement.innerHTML= `
-        <li id="select-btn-${name.id}" onclick="accessLiItem(${name.id})" class="common-btn hover:bg-[#15803D] transition hover:text-white font-medium px-4 py-1 cursor-pointer rounded-lg my-1">${down.category_name}</li>`;
-        dropDown.append(createElement);
+      const createElement = document.createElement('li');
+    createElement.setAttribute('id', `select-btn-${down.id}`);
+    createElement.setAttribute('onclick', `accessLiItem(${down.id})`);
+    createElement.className = "common-btn hover:bg-[#15803D] transition hover:text-white font-medium px-4 py-1 cursor-pointer rounded-lg my-1";
+    createElement.textContent = down.category_name;
+    dropDown.appendChild(createElement);
   })
          
 }
@@ -86,12 +88,10 @@ const displayCategory = (names) => {
     fetch(categoryTreesApiUrl)
     .then((res) => res.json())
     .then((categoryInfo) => {
-      // remove active class then and added an active class
+      // remove active class then and added an active class these are here
        removeActiveClass();
-    // add active class
+    
     const clickBtn = document.getElementById(`select-btn-${id}`);
-   
-    console.log(clickBtn);
     clickBtn.classList.add(`active`);
     displayCartDetails(categoryInfo.plants);
     });
@@ -100,9 +100,12 @@ const displayCategory = (names) => {
 
 
 
-// save all data globally for showing modal
+// save all data globally for showing modal in this variable
 
  let allDataPlants = [];
+ 
+//  save all data globally for removing data in cart list 
+
  let cartItems = [];
 
 

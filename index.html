@@ -99,7 +99,7 @@
          <span class="loading loading-dots loading-lg"></span>
         </div>
 
-      <!-- <section class=" max-w-screen-xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-12 gap-6">
+       <section class=" max-w-screen-xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-12 gap-6">
         <div class="categories-btn md:col-span-2 bg-white shadow-lg rounded-lg p-4 h-fit self-start">
           <div class="bg-white shadow-lg rounded-lg hidden md:block w-40">
             <h2 class="text-xl font-semibold text-black my-4">Categories</h2>
@@ -109,25 +109,13 @@
             </ul>
           </div>
         </div>
-        
-<div onclick="loadDropCategories()" id="old-id" class="dropdown dropdown-start flex justify-center m-10 md:hidden">
-  <div tabindex="0" role="button" class="btn text-[#15803D] border border-[#15803D] m-1">Show Category</div>
-  <ul id="new-id" tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-green-500">
-  </ul>
-</div>
-  <div onclick="loadDropCategories()" id="single-list"  class="dropdown w-full md:hidden">
-      <div tabindex="0" role="button" class="btn w-full     bg-white text-[#15803D] border border-gray-300">
-           Select Category
-     </div>
-       <ul id="drop-category-2" tabindex="0"
-         class="dropdown-content  menu bg-white text-[#15803D] rounded-box w-full shadow z-[1]">
-       </ul>
-    </div>
-
-</div>
-
-       
-
+    
+        <div onclick="loadDropCategories()" class="relative w-full md:hidden">
+          <button class="btn w-full bg-white text-[#15803D] border border-gray-300">Show Category<i class="fa-solid fa-arrow-down"></i></button>
+          <ul id="new-id" class="absolute hidden bg-white text-[#15803D] rounded-box w-full shadow z-[10]">>
+          </ul>
+        </div>
+  
     <div id="show-card" class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
           
     </div>
@@ -137,8 +125,8 @@
          
           
     </div>
-      </section> -->
-
+      </section>
+ 
       <section class="about-the-campaign">
         <h1 class="text-2xl font-semibold text-center">About the Campaign</h1>
       </section>
@@ -189,6 +177,7 @@
                  <input type="text" class="input w-full" placeholder="Your Name" />
                  <input type="email" class="input w-full" placeholder="Your Email Address" />
                  <input type="number" class="input w-full" placeholder="Number of Trees" />
+                 </select>
                  <button class="btn btn-neutral mt-4 rounded-3xl text-[#15803D] bg-[#FACC15] border border-white">Donate Now</button>
                </fieldset>
              </div>
@@ -201,8 +190,6 @@
         <p class="text-white">© 2025 Green Earth. All Rights Reserved.</p>
       </sec>
     </footer>
-
-    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
     <div id="detail-container" class="space-y-5">

@@ -103,7 +103,7 @@ const displayCategory = (names) => {
 // save all data globally for showing modal in this variable
 
  let allDataPlants = [];
- 
+
 //  save all data globally for removing data in cart list 
 
  let cartItems = [];
@@ -115,12 +115,14 @@ const removedCartItem =(index) => {
   showDisplayWishlist();
 }
 
+
  // add wishlistData
 const wishlistAdd = (wishLoad) => {
 console.log(wishLoad);
 const wishMatchPlants = allDataPlants.find((plantDetails) => plantDetails.id === wishLoad);
 if(wishMatchPlants) {
   cartItems.push(wishMatchPlants)
+  alert(`${wishMatchPlants.name} tree added to your cart!`);
   showDisplayWishlist(wishMatchPlants)
 } else {
   console.error(`404 not found`)
